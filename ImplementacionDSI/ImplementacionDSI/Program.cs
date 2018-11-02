@@ -16,7 +16,7 @@ namespace ImplementacionDSI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmGenerarRemito());
+            Main clase = new Main();
         }
     }
 }
