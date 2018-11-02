@@ -82,6 +82,7 @@
             this.razonSocial});
             this.dataGridView1.Location = new System.Drawing.Point(6, 21);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -92,27 +93,32 @@
             // 
             this.fechaPedido.HeaderText = "Fecha de Pedido";
             this.fechaPedido.Name = "fechaPedido";
+            this.fechaPedido.ReadOnly = true;
             // 
             // numero
             // 
             this.numero.HeaderText = "numeroPedido";
             this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
             this.numero.Visible = false;
             // 
             // PENombre
             // 
             this.PENombre.HeaderText = "Nombre Punto Entrega";
             this.PENombre.Name = "PENombre";
+            this.PENombre.ReadOnly = true;
             // 
             // direccion
             // 
             this.direccion.HeaderText = "Direccion";
             this.direccion.Name = "direccion";
+            this.direccion.ReadOnly = true;
             // 
             // razonSocial
             // 
             this.razonSocial.HeaderText = "Cliente";
             this.razonSocial.Name = "razonSocial";
+            this.razonSocial.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -190,6 +196,7 @@
             this.fechaComercializacion});
             this.dgvCortesCandidatos.Location = new System.Drawing.Point(11, 21);
             this.dgvCortesCandidatos.Name = "dgvCortesCandidatos";
+            this.dgvCortesCandidatos.ReadOnly = true;
             this.dgvCortesCandidatos.RowHeadersVisible = false;
             this.dgvCortesCandidatos.RowTemplate.Height = 24;
             this.dgvCortesCandidatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -200,16 +207,19 @@
             // 
             this.nombreCorteDisponible.HeaderText = "Nombre";
             this.nombreCorteDisponible.Name = "nombreCorteDisponible";
+            this.nombreCorteDisponible.ReadOnly = true;
             // 
             // kilosCorteDisponible
             // 
             this.kilosCorteDisponible.HeaderText = "Kilos";
             this.kilosCorteDisponible.Name = "kilosCorteDisponible";
+            this.kilosCorteDisponible.ReadOnly = true;
             // 
             // fechaComercializacion
             // 
             this.fechaComercializacion.HeaderText = "Fecha Comercialización";
             this.fechaComercializacion.Name = "fechaComercializacion";
+            this.fechaComercializacion.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -232,6 +242,7 @@
             this.kilosCorte});
             this.dgvCortesSolicitados.Location = new System.Drawing.Point(6, 21);
             this.dgvCortesSolicitados.Name = "dgvCortesSolicitados";
+            this.dgvCortesSolicitados.ReadOnly = true;
             this.dgvCortesSolicitados.RowHeadersVisible = false;
             this.dgvCortesSolicitados.RowTemplate.Height = 24;
             this.dgvCortesSolicitados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -242,11 +253,13 @@
             // 
             this.nombreCorte.HeaderText = "Nombre";
             this.nombreCorte.Name = "nombreCorte";
+            this.nombreCorte.ReadOnly = true;
             // 
             // kilosCorte
             // 
             this.kilosCorte.HeaderText = "Kilos Pedidos";
             this.kilosCorte.Name = "kilosCorte";
+            this.kilosCorte.ReadOnly = true;
             // 
             // groupBox4
             // 
@@ -273,6 +286,7 @@
             this.kilosAcumulado});
             this.dgvCortesSeleccionados.Location = new System.Drawing.Point(6, 30);
             this.dgvCortesSeleccionados.Name = "dgvCortesSeleccionados";
+            this.dgvCortesSeleccionados.ReadOnly = true;
             this.dgvCortesSeleccionados.RowHeadersVisible = false;
             this.dgvCortesSeleccionados.RowTemplate.Height = 24;
             this.dgvCortesSeleccionados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -283,31 +297,37 @@
             // 
             this.nombreCorteSeleccionado.HeaderText = "Nombre";
             this.nombreCorteSeleccionado.Name = "nombreCorteSeleccionado";
+            this.nombreCorteSeleccionado.ReadOnly = true;
             // 
             // kilosCorteSeleccionado
             // 
             this.kilosCorteSeleccionado.HeaderText = "Kilos";
             this.kilosCorteSeleccionado.Name = "kilosCorteSeleccionado";
+            this.kilosCorteSeleccionado.ReadOnly = true;
             // 
             // seccion
             // 
             this.seccion.HeaderText = "Sección";
             this.seccion.Name = "seccion";
+            this.seccion.ReadOnly = true;
             // 
             // estante
             // 
             this.estante.HeaderText = "Estante";
             this.estante.Name = "estante";
+            this.estante.ReadOnly = true;
             // 
             // camara
             // 
             this.camara.HeaderText = "Cámara";
             this.camara.Name = "camara";
+            this.camara.ReadOnly = true;
             // 
             // kilosAcumulado
             // 
             this.kilosAcumulado.HeaderText = "Kilos Acumulados";
             this.kilosAcumulado.Name = "kilosAcumulado";
+            this.kilosAcumulado.ReadOnly = true;
             // 
             // btnGenerarRemito
             // 
