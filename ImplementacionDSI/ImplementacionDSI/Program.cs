@@ -16,7 +16,7 @@ namespace ImplementacionDSI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Main clase = new Main();
+            Gestor clase = new Gestor();
         }
     }
 }
