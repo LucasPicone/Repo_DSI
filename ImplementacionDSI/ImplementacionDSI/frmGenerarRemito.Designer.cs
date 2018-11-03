@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAgregarCorte = new System.Windows.Forms.Button();
@@ -40,12 +37,8 @@
             this.btnPedido = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvCortesCandidatos = new System.Windows.Forms.DataGridView();
-            this.nombreCorteDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilosCorteDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaComercializacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvCortesSolicitados = new System.Windows.Forms.DataGridView();
-            this.detallePedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgvCortesSeleccionados = new System.Windows.Forms.DataGridView();
             this.nombreCorteSeleccionado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,19 +49,30 @@
             this.kilosAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerarRemito = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.tipoCorteVacunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nombreCorteVacunoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCorteVacunoDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.corteVacunoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaPedidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.kilosCorteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCorteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detallePedidoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesCandidatos)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesSolicitados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detallePedidoBindingSource)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesSeleccionados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoCorteVacunoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.corteVacunoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detallePedidoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -90,24 +94,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(983, 150);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // numeroDataGridViewTextBoxColumn
-            // 
-            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
-            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
-            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
-            this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaPedidoDataGridViewTextBoxColumn
-            // 
-            this.fechaPedidoDataGridViewTextBoxColumn.DataPropertyName = "FechaPedido";
-            this.fechaPedidoDataGridViewTextBoxColumn.HeaderText = "FechaPedido";
-            this.fechaPedidoDataGridViewTextBoxColumn.Name = "fechaPedidoDataGridViewTextBoxColumn";
-            this.fechaPedidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pedidoBindingSource
-            // 
-            this.pedidoBindingSource.DataSource = typeof(ImplementacionDSI.Pedido);
             // 
             // groupBox1
             // 
@@ -133,6 +119,7 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAgregarCorte
             // 
@@ -153,6 +140,7 @@
             this.btnCorte.TabIndex = 5;
             this.btnCorte.Text = "Seleccionar Corte";
             this.btnCorte.UseVisualStyleBackColor = true;
+            this.btnCorte.Click += new System.EventHandler(this.btnCorte_Click);
             // 
             // btnPedido
             // 
@@ -179,11 +167,15 @@
             this.dgvCortesCandidatos.AllowUserToAddRows = false;
             this.dgvCortesCandidatos.AllowUserToDeleteRows = false;
             this.dgvCortesCandidatos.AllowUserToResizeRows = false;
+            this.dgvCortesCandidatos.AutoGenerateColumns = false;
             this.dgvCortesCandidatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCortesCandidatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreCorteDisponible,
-            this.kilosCorteDisponible,
-            this.fechaComercializacion});
+            this.nombreCorteVacunoDataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgvCortesCandidatos.DataSource = this.corteVacunoBindingSource;
             this.dgvCortesCandidatos.Location = new System.Drawing.Point(11, 21);
             this.dgvCortesCandidatos.Name = "dgvCortesCandidatos";
             this.dgvCortesCandidatos.ReadOnly = true;
@@ -192,24 +184,6 @@
             this.dgvCortesCandidatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCortesCandidatos.Size = new System.Drawing.Size(330, 196);
             this.dgvCortesCandidatos.TabIndex = 2;
-            // 
-            // nombreCorteDisponible
-            // 
-            this.nombreCorteDisponible.HeaderText = "Nombre";
-            this.nombreCorteDisponible.Name = "nombreCorteDisponible";
-            this.nombreCorteDisponible.ReadOnly = true;
-            // 
-            // kilosCorteDisponible
-            // 
-            this.kilosCorteDisponible.HeaderText = "Kilos";
-            this.kilosCorteDisponible.Name = "kilosCorteDisponible";
-            this.kilosCorteDisponible.ReadOnly = true;
-            // 
-            // fechaComercializacion
-            // 
-            this.fechaComercializacion.HeaderText = "Fecha Comercialización";
-            this.fechaComercializacion.Name = "fechaComercializacion";
-            this.fechaComercializacion.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -229,7 +203,8 @@
             this.dgvCortesSolicitados.AutoGenerateColumns = false;
             this.dgvCortesSolicitados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCortesSolicitados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.kilosCorteDataGridViewTextBoxColumn});
+            this.kilosCorteDataGridViewTextBoxColumn,
+            this.nombreCorteDataGridViewTextBoxColumn});
             this.dgvCortesSolicitados.DataSource = this.detallePedidoBindingSource;
             this.dgvCortesSolicitados.Location = new System.Drawing.Point(6, 21);
             this.dgvCortesSolicitados.Name = "dgvCortesSolicitados";
@@ -239,10 +214,6 @@
             this.dgvCortesSolicitados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCortesSolicitados.Size = new System.Drawing.Size(310, 196);
             this.dgvCortesSolicitados.TabIndex = 1;
-            // 
-            // detallePedidoBindingSource
-            // 
-            this.detallePedidoBindingSource.DataSource = typeof(ImplementacionDSI.DetallePedido);
             // 
             // groupBox4
             // 
@@ -314,6 +285,7 @@
             // 
             // btnGenerarRemito
             // 
+            this.btnGenerarRemito.Enabled = false;
             this.btnGenerarRemito.Location = new System.Drawing.Point(907, 636);
             this.btnGenerarRemito.Name = "btnGenerarRemito";
             this.btnGenerarRemito.Size = new System.Drawing.Size(100, 49);
@@ -329,10 +301,72 @@
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // tipoCorteVacunoBindingSource
+            // nombreCorteVacunoDataGridViewTextBoxColumn
             // 
-            this.tipoCorteVacunoBindingSource.DataSource = typeof(ImplementacionDSI.TipoCorteVacuno);
+            this.nombreCorteVacunoDataGridViewTextBoxColumn.DataPropertyName = "NombreCorteVacuno";
+            this.nombreCorteVacunoDataGridViewTextBoxColumn.HeaderText = "NombreCorteVacuno";
+            this.nombreCorteVacunoDataGridViewTextBoxColumn.Name = "nombreCorteVacunoDataGridViewTextBoxColumn";
+            // 
+            // nombreCorteVacunoDataGridViewTextBoxColumn2
+            // 
+            this.nombreCorteVacunoDataGridViewTextBoxColumn2.DataPropertyName = "NombreCorteVacuno";
+            this.nombreCorteVacunoDataGridViewTextBoxColumn2.HeaderText = "NombreCorteVacuno";
+            this.nombreCorteVacunoDataGridViewTextBoxColumn2.Name = "nombreCorteVacunoDataGridViewTextBoxColumn2";
+            this.nombreCorteVacunoDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "NroSecuencia";
+            this.dataGridViewTextBoxColumn1.HeaderText = "NroSecuencia";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Peso";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Peso";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "FechaEnvasado";
+            this.dataGridViewTextBoxColumn3.HeaderText = "FechaEnvasado";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "FechaVencimiento";
+            this.dataGridViewTextBoxColumn4.HeaderText = "FechaVencimiento";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // corteVacunoBindingSource
+            // 
+            this.corteVacunoBindingSource.DataSource = typeof(ImplementacionDSI.CorteVacuno);
+            // 
+            // numeroDataGridViewTextBoxColumn
+            // 
+            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
+            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
+            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
+            this.numeroDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaPedidoDataGridViewTextBoxColumn
+            // 
+            this.fechaPedidoDataGridViewTextBoxColumn.DataPropertyName = "FechaPedido";
+            this.fechaPedidoDataGridViewTextBoxColumn.HeaderText = "FechaPedido";
+            this.fechaPedidoDataGridViewTextBoxColumn.Name = "fechaPedidoDataGridViewTextBoxColumn";
+            this.fechaPedidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pedidoBindingSource
+            // 
+            this.pedidoBindingSource.DataSource = typeof(ImplementacionDSI.Pedido);
             // 
             // kilosCorteDataGridViewTextBoxColumn
             // 
@@ -340,6 +374,17 @@
             this.kilosCorteDataGridViewTextBoxColumn.HeaderText = "KilosCorte";
             this.kilosCorteDataGridViewTextBoxColumn.Name = "kilosCorteDataGridViewTextBoxColumn";
             this.kilosCorteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreCorteDataGridViewTextBoxColumn
+            // 
+            this.nombreCorteDataGridViewTextBoxColumn.DataPropertyName = "NombreCorte";
+            this.nombreCorteDataGridViewTextBoxColumn.HeaderText = "NombreCorte";
+            this.nombreCorteDataGridViewTextBoxColumn.Name = "nombreCorteDataGridViewTextBoxColumn";
+            this.nombreCorteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // detallePedidoBindingSource
+            // 
+            this.detallePedidoBindingSource.DataSource = typeof(ImplementacionDSI.DetallePedido);
             // 
             // frmGenerarRemito
             // 
@@ -353,16 +398,16 @@
             this.Name = "frmGenerarRemito";
             this.Text = "Generar Remito";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesCandidatos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesSolicitados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.detallePedidoBindingSource)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCortesSeleccionados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tipoCorteVacunoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.corteVacunoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pedidoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.detallePedidoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,9 +424,6 @@
         private System.Windows.Forms.Button btnAgregarCorte;
         private System.Windows.Forms.Button btnCorte;
         private System.Windows.Forms.Button btnPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorteDisponible;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilosCorteDisponible;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaComercializacion;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dgvCortesSeleccionados;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorteSeleccionado;
@@ -395,9 +437,21 @@
         private System.Windows.Forms.BindingSource pedidoBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPedidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource detallePedidoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorteVacunoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kilosCorteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource tipoCorteVacunoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource detallePedidoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nroSecuenciaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pesoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEnvasadoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVencimientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorteVacunoDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource corteVacunoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorteVacunoDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
 
