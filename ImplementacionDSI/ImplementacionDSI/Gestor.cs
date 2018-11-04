@@ -23,17 +23,21 @@ namespace ImplementacionDSI
         private void IniciarForm()
         {
             frmGenerarRemito frm = new frmGenerarRemito();
-            List<Pedido> pedidos = this.pedidos.OrderBy(o => o.FechaPedido).ToList();
-            frm.Pedidos(pedidos);
+            frm.mostrarPedidos(buscarPedidosSinRemito());
             frm.ShowDialog();
         }
         
-        public void Instanciar()
+        private void Instanciar()
         {
             lomito = new TipoCorteVacuno("Lomito");
             costillar = new TipoCorteVacuno("Costillar");
+            Remito rem = new Remito(new DateTime(2018, 11, 4), 1, new DateTime());
 
             CorteVacuno corteLomito = new CorteVacuno(1, 2.3, new DateTime(2018, 10, 9), new DateTime(2018, 11, 20), lomito, lomito.Nombre);
+            cortes.Add(corteLomito);
+            corteLomito = new CorteVacuno(2, 2, new DateTime(2018, 10, 15), new DateTime(2018, 11, 5), lomito, lomito.Nombre);
+            cortes.Add(corteLomito);
+            corteLomito = new CorteVacuno(3, 1.5, new DateTime(2018, 10, 13), new DateTime(2018, 11, 11), lomito, lomito.Nombre);
             cortes.Add(corteLomito);
 
             DetallePedido detalle = new DetallePedido(20.5, lomito.Nombre, lomito);
@@ -41,18 +45,32 @@ namespace ImplementacionDSI
             detalle = new DetallePedido(10.69, costillar.Nombre, costillar);
             detalles.Add(detalle);
 
-            Pedido pedido = new Pedido(1, new DateTime(2018, 11, 3), detalles);
+            Pedido pedido = new Pedido(1, new DateTime(2018, 11, 3), detalles, null);
             pedidos.Add(pedido);
-            pedido = new Pedido(3, new DateTime(2018, 10, 28), detalles);
+            pedido = new Pedido(3, new DateTime(2018, 10, 28), detalles, null);
             pedidos.Add(pedido);
-            pedido = new Pedido(2, new DateTime(2018, 11, 1), detalles);
+            pedido = new Pedido(2, new DateTime(2018, 11, 1), detalles, rem);
             pedidos.Add(pedido);
         }
 
-        public static List<DetallePedido> DetallesPedido(Pedido ped)
+        private List<Pedido> buscarPedidosSinRemito()
+        {
+            List<Pedido> pedidosSinRemito = new List<Pedido>();
+            for (int i=0; i<pedidos.Count; i++)
+            {
+                if (!pedidos[i].tieneRemito())
+                {
+                    pedidosSinRemito.Add(pedidos[i]);
+                }
+            }
+            List<Pedido> ordenados = pedidosSinRemito.OrderBy(o => o.FechaPedido).ToList();
+            return ordenados;
+        }
+
+        public static List<DetallePedido> tomarPedido(Pedido ped)
         {
             List<DetallePedido> lista = new List<DetallePedido>();
-            lista = ped.Detalles;
+            lista = ped.buscarDatosTipoCorte();
             return lista;
         }
 

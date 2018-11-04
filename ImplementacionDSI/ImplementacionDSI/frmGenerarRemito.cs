@@ -12,24 +12,26 @@ namespace ImplementacionDSI
 {
     public partial class frmGenerarRemito : Form
     {
+        DateTime fechaActual = System.DateTime.Now;
+        
         public frmGenerarRemito()
         {
             InitializeComponent();
         }
 
-        internal void Pedidos(List<Pedido> lista)
+        internal void mostrarPedidos(List<Pedido> lista)
         {
             for (int i = 0; i < lista.Count; i++)
             {
                 pedidoBindingSource.Add(lista[i]);
             }
         }
-        
+
         private void btnPedido_Click(object sender, EventArgs e)
         {
             btnPedido.Enabled = false;
             btnCorte.Enabled = true;
-            List<DetallePedido> lista = Gestor.DetallesPedido(dataGridView1.CurrentRow.DataBoundItem as Pedido);
+            List<DetallePedido> lista = Gestor.tomarPedido(dataGridView1.CurrentRow.DataBoundItem as Pedido);
             for (int i = 0; i < lista.Count; i++)
             {
                 detallePedidoBindingSource.Add(lista[i]);
@@ -45,8 +47,29 @@ namespace ImplementacionDSI
             {
                 corteVacunoBindingSource.Add(lista[i]);
             }
+            semaforoCortes();
         }
 
+        private void semaforoCortes()
+        {
+            foreach (DataGridViewRow fila in dgvCortesCandidatos.Rows)
+            {
+                double dias = (Convert.ToDateTime(fila.Cells[4].Value) - fechaActual).TotalDays;
+                if (0 < dias && dias < 5)
+                {
+                    fila.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else if (5 < dias && dias < 10)
+                {
+                    fila.DefaultCellStyle.BackColor = Color.Yellow;
+                }
+                else if (10 < dias)
+                {
+                    fila.DefaultCellStyle.BackColor = Color.Green;
+                }
+            }
+            dgvCortesCandidatos.DefaultCellStyle.SelectionBackColor = Color.Transparent;
+        }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             dgvCortesCandidatos.Rows.Clear();
