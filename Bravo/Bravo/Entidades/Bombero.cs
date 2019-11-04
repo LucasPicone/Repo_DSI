@@ -37,12 +37,21 @@ namespace Bravo.Entidades
             return activo;
         }
 
-        public void mostrarDatos(DateTime fechaActual)
+        public Object[] mostrarDatos(DateTime fechaActual)
         {
+            Object[] bombero = new Object[3];
+            List<String[]> disponibilidadCompleta = null;
             foreach(Disponibilidad disponibilidad in disponibilidad)
             {
-
+                if(disponibilidad.sosVigente(fechaActual))
+                {
+                    disponibilidadCompleta = disponibilidad.mostrarDisponibilidadCompleta();
+                }
             }
+            bombero[0] = this.nombre;
+            bombero[1] = this.apellido;
+            bombero[2] = disponibilidadCompleta;
+            return bombero;
         }
     }
 }
