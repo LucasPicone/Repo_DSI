@@ -25,7 +25,7 @@ namespace Bravo.Entidades
 
         public bool coincidePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
-            if(this.fechaDesde >= fechaHasta && this.fechaHasta <= fechaDesde)
+            if(this.fechaDesde >= fechaHasta || this.fechaHasta <= fechaDesde)
             {
                 //valida que este fuera del rango
                 if (estado.esProgramada() || estado.esEnCurso())

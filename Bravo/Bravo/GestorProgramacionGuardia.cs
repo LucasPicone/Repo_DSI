@@ -17,6 +17,7 @@ namespace Bravo
         private DateTime fechaDesde;
         private DateTime fechaHasta;
         private DateTime fechaActual;
+        private List<Bombero> bomberosSeleccionados;
 
         public GestorProgramacionGuardia()
         {
@@ -78,8 +79,8 @@ namespace Bravo
             DateTime fechaDesde = new DateTime(2019, 10, 31);
             DateTime fechaHasta = new DateTime(2019, 11, 30);
             DateTime fechaDesde1 = new DateTime(2019, 9, 18);
-            DateTime fechaHasta1= new DateTime(2019, 10, 28);
-            DateTime fechaDesde2 = new DateTime(2019, 11, 15);
+            DateTime fechaHasta1= new DateTime(2019, 11, 28);
+            DateTime fechaDesde2 = new DateTime(2019, 11, 1);
             DateTime fechaHasta2 = new DateTime(2019, 12, 25);
 
             //creo algunas disponibilidades con sus detalles
@@ -92,14 +93,18 @@ namespace Bravo
 
             List<Disponibilidad> disponibilidad1 = new List<Disponibilidad>();
             disponibilidad1.Add(dis1);
+
             List<Disponibilidad> disponibilidad2 = new List<Disponibilidad>();
             disponibilidad2.Add(dis2);
+
             List<Disponibilidad> disponibilidad3= new List<Disponibilidad>();
-            disponibilidad2.Add(dis3);
+            disponibilidad3.Add(dis3);
+
             List<Disponibilidad> disponibilidad4 = new List<Disponibilidad>();
-            disponibilidad2.Add(dis4);
+            disponibilidad4.Add(dis4);
+
             List<Disponibilidad> disponibilidad5 = new List<Disponibilidad>();
-            disponibilidad2.Add(dis5);
+            disponibilidad5.Add(dis5);
 
             DateTime nacimiento1 = new DateTime(1995, 6, 15);
             DateTime nacimiento2 = new DateTime(1980, 12, 21);
@@ -151,14 +156,16 @@ namespace Bravo
             guardias.Add(guardia1);
             guardias.Add(guardia2);
 
-            DateTime fechaIn = new DateTime(2019, 12, 1);
-            DateTime fechaFin = new DateTime(2020, 1, 1);
-            ProgramacionGuardia programacion = new ProgramacionGuardia(fechaIn, fechaFin,guardias);
+            DateTime fechaIn = new DateTime(2019, 9, 1);
+            DateTime fechaFin = new DateTime(2019, 10, 3);
+            ProgramacionGuardia programacion = new ProgramacionGuardia(fechaIn, fechaFin, guardias);
 
             //estado de la programacion
 
             Estado estado = new Estado("encurso", "esta en curso");
             programacion.setEstado(estado);
+
+            programaciones.Add(programacion);
 
             //aca empieza el caso de uso solicitando el periodo
             fechaActual = DateTime.Now;
@@ -182,7 +189,7 @@ namespace Bravo
                 if(!programacion.coincidePeriodo(fechaDesde, fechaHasta))
                 {
                     bandera = false;
-                    //mensaje de error y se rompio todo, de nuevo
+                    MessageBox.Show("El periodo ya esta en una programacion valida", "Validacion de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 
@@ -205,7 +212,26 @@ namespace Bravo
             pantalla.mostrarBomberosYDisponibilidad(bomberoActivos);
         }
 
-        public void tomarBomberos()
+        public void tomarBomberos(List<Bombero> bomberoSeleccionado)
+        {
+            bomberosSeleccionados = bomberoSeleccionado;
+            if(validarDisponibilidadBombero(bomberosSeleccionados))
+            {
+                pantalla.solicitarConfirmacion();
+            }
+        }
+
+        public bool validarDisponibilidadBombero(List<Bombero> bomberos)
+        {
+            bool valido = true;
+            foreach(Bombero bombero in bomberos)
+            {
+                //revisar que no hayan cambiado las disponibilidades, no esta programado todavia, no van a cambiar
+            }
+            return valido;
+        }
+
+        public void tomarConfirmacion()
         {
             throw new NotImplementedException();
         }

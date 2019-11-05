@@ -71,6 +71,11 @@ namespace Bravo
             DateTime fechaFinVigencia = bombero.getFinVigenciaDisponibilidadActual();
             List<String[]> disponibilidades = bombero.disponibilidadVigente();
 
+
+            if(form2 == null)
+            {
+                form2 = new Form2(this);
+            }
             form2.Show();
             Form2 form = (Form2)Application.OpenForms["Form2"];
             form.mostrarDisponibilidades(nombre, disponibilidades, fechaFinVigencia);
@@ -84,7 +89,15 @@ namespace Bravo
             }
             else
             {
-                gestor.tomarBomberos();
+                gestor.tomarBomberos(bomberoSeleccionado);
+            }
+        }
+
+        public void solicitarConfirmacion()
+        {
+            if(MessageBox.Show("¿Desea crear la programacion?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                gestor.tomarConfirmacion();
             }
         }
     }

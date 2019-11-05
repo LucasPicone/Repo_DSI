@@ -22,6 +22,7 @@ namespace Bravo.GUI
 
         public void mostrarDisponibilidades(String nombre, List<String[]> disp, DateTime fechaFinVigencia)
         {
+            dgvDisponibilidades.Rows.Clear();
             txtBomberoDisp.Text = nombre;
             txtFechaFinVigencia.Text = fechaFinVigencia.ToShortDateString();
 
@@ -29,6 +30,12 @@ namespace Bravo.GUI
             {
                 dgvDisponibilidades.Rows.Add(disp[i][2], disp[i][0], disp[i][1], disp[i][0], disp[i][1], disp[i][0], disp[i][1]);
             }
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            this.Hide();
         }
     }
 }

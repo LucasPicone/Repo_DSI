@@ -57,6 +57,7 @@ namespace Bravo.Entidades
         {
             return dispoVigente.getFinVigencia();
         }
+
         public Bombero mostrarDatos(DateTime fechaActual)
         {
             /*

@@ -34,19 +34,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDisponibilidades = new System.Windows.Forms.DataGridView();
-            this.txtFechaFinVigencia = new System.Windows.Forms.TextBox();
             this.dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaDesdeDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaHastaDisponible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaDesdeGuardia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaHastaGuardia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFechaFinVigencia = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisponibilidades)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAceptar
             // 
             this.btnAceptar.Location = new System.Drawing.Point(783, 502);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(100, 28);
             this.btnAceptar.TabIndex = 0;
@@ -56,7 +56,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(931, 502);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             this.txtBomberoDisp.Enabled = false;
             this.txtBomberoDisp.Location = new System.Drawing.Point(384, 63);
-            this.txtBomberoDisp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBomberoDisp.Margin = new System.Windows.Forms.Padding(4);
             this.txtBomberoDisp.Name = "txtBomberoDisp";
             this.txtBomberoDisp.Size = new System.Drawing.Size(265, 22);
             this.txtBomberoDisp.TabIndex = 2;
@@ -104,18 +104,11 @@
             this.horaDesdeGuardia,
             this.horaHastaGuardia});
             this.dgvDisponibilidades.Location = new System.Drawing.Point(136, 188);
-            this.dgvDisponibilidades.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDisponibilidades.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDisponibilidades.Name = "dgvDisponibilidades";
             this.dgvDisponibilidades.RowHeadersVisible = false;
             this.dgvDisponibilidades.Size = new System.Drawing.Size(895, 286);
             this.dgvDisponibilidades.TabIndex = 6;
-            // 
-            // txtFechaFinVigencia
-            // 
-            this.txtFechaFinVigencia.Location = new System.Drawing.Point(384, 102);
-            this.txtFechaFinVigencia.Name = "txtFechaFinVigencia";
-            this.txtFechaFinVigencia.Size = new System.Drawing.Size(100, 22);
-            this.txtFechaFinVigencia.TabIndex = 7;
             // 
             // dias
             // 
@@ -145,6 +138,13 @@
             this.horaHastaGuardia.HeaderText = "Hora hasta guardia";
             this.horaHastaGuardia.Name = "horaHastaGuardia";
             // 
+            // txtFechaFinVigencia
+            // 
+            this.txtFechaFinVigencia.Location = new System.Drawing.Point(384, 102);
+            this.txtFechaFinVigencia.Name = "txtFechaFinVigencia";
+            this.txtFechaFinVigencia.Size = new System.Drawing.Size(100, 22);
+            this.txtFechaFinVigencia.TabIndex = 7;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -157,9 +157,10 @@
             this.Controls.Add(this.txtBomberoDisp);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisponibilidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
