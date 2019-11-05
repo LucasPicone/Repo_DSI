@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bravo.Entidades
 {
-    class DiaSemana
+    public class DiaSemana
     {
         private String nombre;
 

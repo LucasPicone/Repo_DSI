@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Bravo.Entidades
 {
 
-    class Bombero
+    public class Bombero
     {
         private bool activo;
         private String apellido;
@@ -18,6 +18,7 @@ namespace Bravo.Entidades
         private String telefono;
         private DateTime fechaNacimiento;
         private List<Disponibilidad> disponibilidad;
+        private Disponibilidad dispoVigente;
 
         public Bombero(String nombre, String apellido, int dni, String dir, String email, String tel, DateTime fecha, List<Disponibilidad> dis)
         {
@@ -37,21 +38,46 @@ namespace Bravo.Entidades
             return activo;
         }
 
-        public Object[] mostrarDatos(DateTime fechaActual)
+        public String getNombre()
         {
+            return this.nombre;
+        }
+
+        public String getApellido()
+        {
+            return this.apellido;
+        }
+
+        public List<String[]> disponibilidadVigente()
+        {
+            return dispoVigente.mostrarDisponibilidadCompleta();
+        }
+
+        public DateTime getFinVigenciaDisponibilidadActual()
+        {
+            return dispoVigente.getFinVigencia();
+        }
+        public Bombero mostrarDatos(DateTime fechaActual)
+        {
+            /*
             Object[] bombero = new Object[3];
             List<String[]> disponibilidadCompleta = null;
+            */
             foreach(Disponibilidad disponibilidad in disponibilidad)
             {
                 if(disponibilidad.sosVigente(fechaActual))
                 {
-                    disponibilidadCompleta = disponibilidad.mostrarDisponibilidadCompleta();
+                    this.dispoVigente = disponibilidad;
+                    //disponibilidadCompleta = disponibilidad.mostrarDisponibilidadCompleta();
+                    return this;
                 }
             }
+            /*
             bombero[0] = this.nombre;
             bombero[1] = this.apellido;
             bombero[2] = disponibilidadCompleta;
-            return bombero;
+            */
+            return null;
         }
     }
 }

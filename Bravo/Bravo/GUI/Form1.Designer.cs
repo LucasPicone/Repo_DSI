@@ -34,13 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvBomberos = new System.Windows.Forms.DataGridView();
+            this.bntAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.bomberoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.incluir = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disponibilidad = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.bntAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.bomberoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBomberos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bomberoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -101,28 +101,7 @@
             this.dgvBomberos.RowHeadersVisible = false;
             this.dgvBomberos.Size = new System.Drawing.Size(980, 247);
             this.dgvBomberos.TabIndex = 4;
-            // 
-            // incluir
-            // 
-            this.incluir.HeaderText = "Incluir";
-            this.incluir.Name = "incluir";
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            // 
-            // disponibilidad
-            // 
-            this.disponibilidad.HeaderText = "Disponibilidad";
-            this.disponibilidad.Name = "disponibilidad";
-            this.disponibilidad.Text = "Disponibilidad";
-            this.disponibilidad.UseColumnTextForButtonValue = true;
+            this.dgvBomberos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBomberos_CellClick);
             // 
             // bntAceptar
             // 
@@ -133,6 +112,7 @@
             this.bntAceptar.TabIndex = 5;
             this.bntAceptar.Text = "Aceptar";
             this.bntAceptar.UseVisualStyleBackColor = true;
+            this.bntAceptar.Click += new System.EventHandler(this.bntAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -144,6 +124,31 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // 
+            // incluir
+            // 
+            this.incluir.HeaderText = "Incluir";
+            this.incluir.Name = "incluir";
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            // 
+            // disponibilidad
+            // 
+            this.disponibilidad.HeaderText = "Disponibilidad";
+            this.disponibilidad.Name = "disponibilidad";
+            this.disponibilidad.ReadOnly = true;
+            this.disponibilidad.Text = "Disponibilidad";
+            this.disponibilidad.UseColumnTextForButtonValue = true;
             // 
             // Form1
             // 
@@ -174,13 +179,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvBomberos;
+        private System.Windows.Forms.Button bntAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.BindingSource bomberoBindingSource;
         private System.Windows.Forms.DataGridViewCheckBoxColumn incluir;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
         private System.Windows.Forms.DataGridViewButtonColumn disponibilidad;
-        private System.Windows.Forms.Button bntAceptar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.BindingSource bomberoBindingSource;
     }
 }
 

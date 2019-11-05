@@ -194,7 +194,7 @@ namespace Bravo
 
         public void buscarBomberos()
         {
-            List<Object[]> bomberoActivos = new List<Object[]>();
+            List<Bombero> bomberoActivos = new List<Bombero>();
             foreach(Bombero bombero in bomberos)
             {
                 if(bombero.esActivo())
@@ -202,7 +202,12 @@ namespace Bravo
                     bomberoActivos.Add(bombero.mostrarDatos(fechaActual));
                 }
             }
-            pantalla.mostrarBomberosYDisponibilidad(bomberoActivos, (GUI.Form1) Application.OpenForms["Form1"]);
+            pantalla.mostrarBomberosYDisponibilidad(bomberoActivos);
+        }
+
+        public void tomarBomberos()
+        {
+            throw new NotImplementedException();
         }
     }
 }

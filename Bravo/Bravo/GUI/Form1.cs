@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bravo.Entidades;
 
 namespace Bravo.GUI
 {
     public partial class Form1 : Form
     {
         private PantallaProgramacionGuardia pantalla;
+        List<Bombero> bomberoActivo;
 
         public Form1(PantallaProgramacionGuardia pant)
         {
@@ -30,16 +32,37 @@ namespace Bravo.GUI
             pantalla.tomarFechaHasta(dtpFechaHasta.Value);
         }
 
-        public void llenarGrilla(DataTable tabla)
+        public void llenarGrilla(List<Bombero> bomberoActivos)
         {
             dgvBomberos.Rows.Clear();
-            if(tabla.Rows.Count > 0)
+            this.bomberoActivo = bomberoActivos;
+
+            foreach(Bombero bombero in bomberoActivos)
             {
-                for(int i = 0; i < tabla.Rows.Count; i++)
+                dgvBomberos.Rows.Add(false, bombero.getNombre(), bombero.getApellido());
+            }
+        }
+
+        private void dgvBomberos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex != dgvBomberos.Columns["disponibilidad"].Index) return;
+
+            pantalla.mostrarDisponibilidades(bomberoActivo[e.RowIndex]);
+        }
+
+        private void bntAceptar_Click(object sender, EventArgs e)
+        {
+            List<Bombero> bomberoSeleccionado = new List<Bombero>();
+            foreach(DataGridViewRow row in dgvBomberos.Rows)
+            {
+                bool a = (bool) row.Cells[0].Value;
+                if(a)
                 {
-                    dgvBomberos.Rows.Add(false, tabla.Rows[i]["nombre"], tabla.Rows[i]["apellido"]);
+                    bomberoSeleccionado.Add(bomberoActivo[row.Index]);
                 }
             }
+
+            pantalla.validarSeleccionBomberos(bomberoSeleccionado);
         }
     }
 }

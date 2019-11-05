@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bravo.Entidades
 {
-    class DetalleDisponibilidad
+    public class DetalleDisponibilidad
     {
         private DateTime horaDesde;
         private DateTime horaHasta;
@@ -27,7 +27,6 @@ namespace Bravo.Entidades
             datos[2] = dia.getNombre();
 
             return datos;
-
         }
     }
 }

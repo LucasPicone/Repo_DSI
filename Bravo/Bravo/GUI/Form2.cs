@@ -19,5 +19,16 @@ namespace Bravo.GUI
             this.pantalla = pantalla;
             InitializeComponent();
         }
+
+        public void mostrarDisponibilidades(String nombre, List<String[]> disp, DateTime fechaFinVigencia)
+        {
+            txtBomberoDisp.Text = nombre;
+            txtFechaFinVigencia.Text = fechaFinVigencia.ToShortDateString();
+
+            for (int i = 0; i < disp.Count; i++)
+            {
+                dgvDisponibilidades.Rows.Add(disp[i][2], disp[i][0], disp[i][1], disp[i][0], disp[i][1], disp[i][0], disp[i][1]);
+            }
+        }
     }
 }
