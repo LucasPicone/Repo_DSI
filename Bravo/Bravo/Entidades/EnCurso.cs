@@ -8,5 +8,10 @@ namespace Bravo.Entidades
 {
     class EnCurso : EstadoGuardiaBombero
     {
+        public EnCurso()
+        {
+            this.nombre = "encurso";
+            this.descripcion = "Esta en curso";
+        }
     }
 }

@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace Bravo.Entidades
 {
-    class Estado
+    public class Estado
     {
+        private String nombre;
+        private String descripcion;
+
+        public Estado(String nombre, String descripcion)
+        {
+            this.nombre = nombre.ToLower();
+            this.descripcion = descripcion;
+        }
+
         internal bool esEnCurso()
         {
-            throw new NotImplementedException();
+            return (nombre=="encurso");
         }
 
         internal bool esProgramada()
         {
-            throw new NotImplementedException();
+            return (nombre == "programada");
         }
     }
 }

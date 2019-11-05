@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Bravo.Entidades
 {
@@ -6,12 +7,20 @@ namespace Bravo.Entidades
     {
         private DateTime fechaDesde;
         private DateTime fechaHasta;
+        private List<GuardiaBombero> guardias;
         private Estado estado;
+        
 
-        public ProgramacionGuardia(DateTime fechaDesde, DateTime fechaHasta)
+        public void setEstado(Estado e)
+        {
+            estado = e;
+        }
+
+        public ProgramacionGuardia(DateTime fechaDesde, DateTime fechaHasta, List<GuardiaBombero> guardias)
         {
             this.fechaDesde = fechaDesde;
             this.fechaHasta = fechaHasta;
+            this.guardias = guardias;
         }
 
         public bool coincidePeriodo(DateTime fechaDesde, DateTime fechaHasta)
@@ -32,5 +41,6 @@ namespace Bravo.Entidades
                 return false;
             }
         }
+
     }
 }

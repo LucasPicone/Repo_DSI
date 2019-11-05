@@ -144,9 +144,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // bomberoBindingSource
-            // 
-            this.bomberoBindingSource.DataSource = typeof(Bravo.Entidades.Bombero);
             // 
             // Form1
             // 
