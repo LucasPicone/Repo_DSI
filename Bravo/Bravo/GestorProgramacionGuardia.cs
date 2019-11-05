@@ -282,6 +282,7 @@ namespace Bravo
 
             ProgramacionGuardia nueva = new ProgramacionGuardia(fechaDesde, fechaHasta, estadoProgramada, bomberosSeleccionados,horasDesde,horasHasta,diasSemana);
 
+            programaciones.Add(nueva);
             MessageBox.Show("Programacion creada con éxito", "Programación finalizada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
