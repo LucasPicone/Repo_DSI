@@ -12,14 +12,12 @@ namespace Bravo.GUI
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private PantallaProgramacionGuardia pantalla;
+
+        public Form2(PantallaProgramacionGuardia pantalla)
         {
+            this.pantalla = pantalla;
             InitializeComponent();
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

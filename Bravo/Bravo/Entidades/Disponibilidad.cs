@@ -22,14 +22,16 @@ namespace Bravo.Entidades
 
         public List<String[]> mostrarDisponibilidadCompleta()
         {
+            
             List<String[]> datos = new List<String[]>();
 
             foreach(DetalleDisponibilidad detalle in detalles)
             {
                 datos.Add(detalle.mostrarDatos());
-                
             }
             return datos;
+            
+
         }
 
         public bool sosVigente(DateTime fechaActual)

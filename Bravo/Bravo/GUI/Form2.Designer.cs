@@ -85,7 +85,6 @@
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Bombero";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // label2
             // 

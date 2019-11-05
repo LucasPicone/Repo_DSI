@@ -84,6 +84,7 @@ namespace Bravo
             //aca empieza el caso de uso solicitando el periodo
             fechaActual = DateTime.Now;
             pantalla = new PantallaProgramacionGuardia(this);
+            pantalla.habilitarVentana();
 
         }
 
@@ -114,14 +115,15 @@ namespace Bravo
 
         public void buscarBomberos()
         {
-            List<Bombero> bomberoActivos = new List<Bombero>();
+            List<Object[]> bomberoActivos = new List<Object[]>();
             foreach(Bombero bombero in bomberos)
             {
                 if(bombero.esActivo())
                 {
-                    bombero.mostrarDatos(fechaActual);
+                    bomberoActivos.Add(bombero.mostrarDatos(fechaActual));
                 }
             }
+            pantalla.mostrarBomberosYDisponibilidad(bomberoActivos);
         }
     }
 }
