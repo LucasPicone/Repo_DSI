@@ -23,6 +23,25 @@ namespace Bravo.Entidades
             this.guardias = guardias;
         }
 
+        public ProgramacionGuardia(DateTime fechaDesde, DateTime fechaHasta, Estado estado, List<Bombero> bomberosSeleccionados, DateTime[][] horasDesde, DateTime[][] horasHasta, DiaSemana[][] diasSemana)
+        {
+            this.fechaDesde = fechaDesde;
+            this.fechaHasta = fechaHasta;
+            this.estado = estado;
+
+            EstadoGuardiaBombero pendiente = new PendienteConfirmacion("pendienteconfirmacion", "indica que esta pendiente de confirmacion");
+
+            guardias = new List<GuardiaBombero>();
+
+            for(int i = 0; i < bomberosSeleccionados.Count; i++)
+            {
+                for(int j = 0; j < diasSemana[i].Length; j++)
+                {
+                    guardias.Add(new GuardiaBombero(bomberosSeleccionados[i], diasSemana[i][j], horasDesde[i][j], horasHasta[i][j]));
+                }
+            }
+        }
+
         public bool coincidePeriodo(DateTime fechaDesde, DateTime fechaHasta)
         {
             if(this.fechaDesde >= fechaHasta || this.fechaHasta <= fechaDesde)

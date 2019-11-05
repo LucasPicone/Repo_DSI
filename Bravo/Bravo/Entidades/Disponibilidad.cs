@@ -40,5 +40,10 @@ namespace Bravo.Entidades
         {
             return this.fechaFinVigencia;
         }
+
+        public int cantidadDetalles()
+        {
+            return this.detalles.Count;
+        }
     }
 }

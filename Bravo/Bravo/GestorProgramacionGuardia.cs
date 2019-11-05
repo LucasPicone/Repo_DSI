@@ -18,6 +18,8 @@ namespace Bravo
         private DateTime fechaHasta;
         private DateTime fechaActual;
         private List<Bombero> bomberosSeleccionados;
+        private List<Estado> estadosProgramacion;
+        private Estado estadoProgramada;
 
         public GestorProgramacionGuardia()
         {
@@ -25,6 +27,7 @@ namespace Bravo
             //Creamos los dias de DiaSemana
             bomberos = new List<Bombero>();
             programaciones = new List<ProgramacionGuardia>();
+            estadosProgramacion = new List<Estado>();
 
             String[] d = { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
             dias = new DiaSemana[7];
@@ -163,6 +166,10 @@ namespace Bravo
             //estado de la programacion
 
             Estado estado = new Estado("encurso", "esta en curso");
+            estadosProgramacion.Add(estado);
+            estado = new Estado("programada", "esta programada");
+            estadosProgramacion.Add(estado);
+
             programacion.setEstado(estado);
 
             programaciones.Add(programacion);
@@ -233,7 +240,27 @@ namespace Bravo
 
         public void tomarConfirmacion()
         {
-            throw new NotImplementedException();
+            this.generarProgramacion();
+        }
+
+        public void generarProgramacion()
+        {
+            this.buscarEstados();
+        }
+
+        public void buscarEstados()
+        {
+            foreach(Estado estado in estadosProgramacion)
+            {
+                if(estado.esProgramada())
+                {
+                    estadoProgramada = estado;
+                }
+            }
+            DateTime[][] horasDesde = new DateTime[bomberosSeleccionados.Count][];
+            DateTime[][] horasHasta = new DateTime[bomberosSeleccionados.Count][];
+
+            ProgramacionGuardia nueva = new ProgramacionGuardia(fechaDesde, fechaHasta, estadoProgramada, bomberosSeleccionados);
         }
     }
 }

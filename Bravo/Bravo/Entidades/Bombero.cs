@@ -60,25 +60,20 @@ namespace Bravo.Entidades
 
         public Bombero mostrarDatos(DateTime fechaActual)
         {
-            /*
-            Object[] bombero = new Object[3];
-            List<String[]> disponibilidadCompleta = null;
-            */
             foreach(Disponibilidad disponibilidad in disponibilidad)
             {
                 if(disponibilidad.sosVigente(fechaActual))
                 {
                     this.dispoVigente = disponibilidad;
-                    //disponibilidadCompleta = disponibilidad.mostrarDisponibilidadCompleta();
                     return this;
                 }
             }
-            /*
-            bombero[0] = this.nombre;
-            bombero[1] = this.apellido;
-            bombero[2] = disponibilidadCompleta;
-            */
             return null;
+        }
+
+        public int cantidadDetallesDisponibilidad()
+        {
+            return dispoVigente.cantidadDetalles();
         }
     }
 }
