@@ -23,7 +23,7 @@ namespace Bravo.Entidades
             this.guardias = guardias;
         }
 
-        public ProgramacionGuardia(DateTime fechaDesde, DateTime fechaHasta, Estado estado, List<Bombero> bomberosSeleccionados, DateTime[][] horasDesde, DateTime[][] horasHasta, DiaSemana[][] diasSemana)
+        public ProgramacionGuardia(DateTime fechaDesde, DateTime fechaHasta, Estado estado, List<Bombero> bomberosSeleccionados, List<DateTime[]> horasDesde, List<DateTime[]> horasHasta, List<DiaSemana[]> diasSemana)
         {
             this.fechaDesde = fechaDesde;
             this.fechaHasta = fechaHasta;
@@ -33,12 +33,24 @@ namespace Bravo.Entidades
 
             guardias = new List<GuardiaBombero>();
 
+            //loop bomberos
+
             for(int i = 0; i < bomberosSeleccionados.Count; i++)
             {
-                for(int j = 0; j < diasSemana[i].Length; j++)
+                //loop dias
+                DiaSemana[] dias = diasSemana[i]; //todos los DiaSemana del bombero i
+                int diasDisponibles = dias.Length; //cantidad de dias que el bombero i tiene disponibles
+                for(int j = 0; j < diasDisponibles; j++)
                 {
-                    guardias.Add(new GuardiaBombero(bomberosSeleccionados[i], diasSemana[i][j], horasDesde[i][j], horasHasta[i][j]));
+                    guardias.Add(new GuardiaBombero(bomberosSeleccionados[i], dias[j], horasDesde[i][j], horasHasta[i][j], pendiente));
+
                 }
+            
+            
+                /*for(int j = 0; j < diasSemana[i].Length; j++)
+                {
+                    guardias.Add(new GuardiaBombero(bomberosSeleccionados[i], diasSemana[i][j], horasDesde[i][j], horasHasta[i][j],pendiente));
+                }*/
             }
         }
 

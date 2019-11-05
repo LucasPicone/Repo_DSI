@@ -28,5 +28,16 @@ namespace Bravo.Entidades
 
             return datos;
         }
+
+        public Object[] cargarDatos()
+        {
+            Object[] datos = new Object[3];
+            datos[0] = horaDesde;
+            datos[1] = horaHasta;
+            datos[2] = dia;
+
+            return datos;
+
+        }
     }
 }

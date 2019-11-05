@@ -257,10 +257,37 @@ namespace Bravo
                     estadoProgramada = estado;
                 }
             }
-            DateTime[][] horasDesde = new DateTime[bomberosSeleccionados.Count][];
-            DateTime[][] horasHasta = new DateTime[bomberosSeleccionados.Count][];
+            List<DateTime[]> horasDesde = new List<DateTime[]>(); //lista con vectores de horasDesde, cada posicion de la lista es un bombero, y cada vector son sus horasDesde
+            List<DateTime[]> horasHasta = new List<DateTime[]>();
+            List<DiaSemana[]> diasSemana = new List<DiaSemana[]>();
 
-            ProgramacionGuardia nueva = new ProgramacionGuardia(fechaDesde, fechaHasta, estadoProgramada, bomberosSeleccionados);
+            for(int i = 0; i < bomberosSeleccionados.Count; i++)
+            {
+                List<Object[]> detalles = bomberosSeleccionados[i].datosDisponibilidadVigente();
+                DateTime[] hdesde = new DateTime[detalles.Count];//vector con todas las horas desde de el bombero i
+                DateTime[] hhasta = new DateTime[detalles.Count];//vector con todas las horas hasta de el bombero i
+                DiaSemana[] dias = new DiaSemana[detalles.Count];//vector con todos los dias de el bombero i
+
+                for (int j = 0; j < detalles.Count; j++)
+                {
+                    //no se si usar corchetes o ElementAt()
+                    hdesde[j] =(DateTime)detalles[j][0]; // busco el elemento j en la lista detalles (que es un vector de objetos) y en la posicion 0 siempre esta la hora desde
+                    hhasta[j] = (DateTime)detalles[j][1]; //en la posicion 1 siempre tengo horas hasta
+                    dias[j] = (DiaSemana)detalles[j][2]; //en la posicion 2 del vector siempre tengo dias
+                }
+                horasDesde.Insert(i, hdesde); 
+                horasHasta.Insert(i, hhasta);
+                diasSemana.Insert(i, dias);
+            }
+
+            ProgramacionGuardia nueva = new ProgramacionGuardia(fechaDesde, fechaHasta, estadoProgramada, bomberosSeleccionados,horasDesde,horasHasta,diasSemana);
+
+            MessageBox.Show("Programacion creada con éxito", "Programación finalizada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        public void llenar(DateTime[][] horasDesde, DateTime[][] horasHasta, DiaSemana[][] diasSemana)
+        {
+
         }
     }
 }

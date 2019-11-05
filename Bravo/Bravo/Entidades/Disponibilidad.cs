@@ -31,6 +31,24 @@ namespace Bravo.Entidades
             return datos;
         }
 
+        public List<Object[]> cargarDisponibilidad()
+        {
+            List<Object[]> datos = new List<Object[]>();
+
+            foreach(DetalleDisponibilidad detalle in detalles)
+            {
+                datos.Add(detalle.cargarDatos());
+            }
+
+            return datos;
+        }
+
+        //???????????????
+        /*public Object[][] cargarDatos()
+        {
+            Object[][] datos = new Object[]
+        }*/
+
         public bool sosVigente(DateTime fechaActual)
         {
             return (fechaFinVigencia > fechaActual);

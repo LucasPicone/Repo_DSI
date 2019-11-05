@@ -22,12 +22,13 @@ namespace Bravo.Entidades
             this.motivoRechazo = "";
         }
 
-        public GuardiaBombero(Bombero bombero, DiaSemana diaSemana, DateTime horaDesde, DateTime horaHasta)
+        public GuardiaBombero(Bombero bombero, DiaSemana diaSemana, DateTime horaDesde, DateTime horaHasta, EstadoGuardiaBombero estado)
         {
             this.bombero = bombero;
             this.diaSemana = diaSemana;
             this.horaDesde = horaDesde;
             this.horaHasta = horaHasta;
+            this.setEstado(estado);
         }
 
         public void setEstado(EstadoGuardiaBombero e)

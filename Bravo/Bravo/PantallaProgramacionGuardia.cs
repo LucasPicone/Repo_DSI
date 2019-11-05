@@ -61,8 +61,6 @@ namespace Bravo
             Form1 form = (Form1) Application.OpenForms["Form1"];
             form.llenarGrilla(bomberoActivos);
 
-            
-            //throw new NotImplementedException();
         }
 
         public void mostrarDisponibilidades(Bombero bombero)

@@ -53,6 +53,11 @@ namespace Bravo.Entidades
             return dispoVigente.mostrarDisponibilidadCompleta();
         }
 
+        public List<Object[]> datosDisponibilidadVigente()
+        {
+            return dispoVigente.cargarDisponibilidad();
+        }
+
         public DateTime getFinVigenciaDisponibilidadActual()
         {
             return dispoVigente.getFinVigencia();
