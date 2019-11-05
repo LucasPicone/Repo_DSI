@@ -49,7 +49,7 @@
             // 
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaDesde.Location = new System.Drawing.Point(131, 54);
-            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaDesde.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(141, 22);
             this.dtpFechaDesde.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaHasta.Location = new System.Drawing.Point(668, 54);
-            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFechaHasta.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(133, 22);
             this.dtpFechaHasta.TabIndex = 1;
@@ -87,6 +87,8 @@
             // 
             // dgvBomberos
             // 
+            this.dgvBomberos.AllowUserToAddRows = false;
+            this.dgvBomberos.AllowUserToDeleteRows = false;
             this.dgvBomberos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBomberos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.incluir,
@@ -94,7 +96,7 @@
             this.apellido,
             this.disponibilidad});
             this.dgvBomberos.Location = new System.Drawing.Point(52, 151);
-            this.dgvBomberos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvBomberos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvBomberos.Name = "dgvBomberos";
             this.dgvBomberos.RowHeadersVisible = false;
             this.dgvBomberos.Size = new System.Drawing.Size(980, 247);
@@ -125,7 +127,7 @@
             // bntAceptar
             // 
             this.bntAceptar.Location = new System.Drawing.Point(737, 470);
-            this.bntAceptar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bntAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.bntAceptar.Name = "bntAceptar";
             this.bntAceptar.Size = new System.Drawing.Size(100, 28);
             this.bntAceptar.TabIndex = 5;
@@ -135,7 +137,7 @@
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(885, 470);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 28);
             this.btnCancelar.TabIndex = 6;
@@ -158,7 +160,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtpFechaHasta);
             this.Controls.Add(this.dtpFechaDesde);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBomberos)).EndInit();

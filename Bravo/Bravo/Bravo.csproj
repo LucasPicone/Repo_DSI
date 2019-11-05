@@ -85,7 +85,7 @@
     <EmbeddedResource Include="GUI\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="obj\Debug\Bravo.Form1.resources" />
+    <EmbeddedResource Include="obj\Debug\Bravo.GUI.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\Bravo.GUI.Form2.resources" />
     <EmbeddedResource Include="obj\Debug\Bravo.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">

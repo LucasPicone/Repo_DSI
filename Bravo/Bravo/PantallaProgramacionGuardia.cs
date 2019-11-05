@@ -54,7 +54,7 @@ namespace Bravo
             }
         }
 
-        public void mostrarBomberosYDisponibilidad(List<object[]> bomberoActivos)
+        public void mostrarBomberosYDisponibilidad(List<object[]> bomberoActivos, Form1 form1)
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("nombre");

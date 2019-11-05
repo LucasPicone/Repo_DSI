@@ -37,7 +37,7 @@ namespace Bravo.GUI
             {
                 for(int i = 0; i < tabla.Rows.Count; i++)
                 {
-                    dgvBomberos.Rows.Add(tabla.Rows[i]["nombre"], tabla.Rows[i]["apellido"]);
+                    dgvBomberos.Rows.Add(false, tabla.Rows[i]["nombre"], tabla.Rows[i]["apellido"]);
                 }
             }
         }

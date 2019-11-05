@@ -123,7 +123,7 @@ namespace Bravo
                     bomberoActivos.Add(bombero.mostrarDatos(fechaActual));
                 }
             }
-            pantalla.mostrarBomberosYDisponibilidad(bomberoActivos);
+            pantalla.mostrarBomberosYDisponibilidad(bomberoActivos, (GUI.Form1) Application.OpenForms["Form1"]);
         }
     }
 }
