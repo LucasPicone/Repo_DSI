@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Bravo.Entidades
 {
 
-    class Disponibilidad
+    public class Disponibilidad
     {
         private DateTime fechaInicioVigencia;
         private DateTime fechaFinVigencia;
@@ -22,7 +22,6 @@ namespace Bravo.Entidades
 
         public List<String[]> mostrarDisponibilidadCompleta()
         {
-            
             List<String[]> datos = new List<String[]>();
 
             foreach(DetalleDisponibilidad detalle in detalles)
@@ -30,13 +29,16 @@ namespace Bravo.Entidades
                 datos.Add(detalle.mostrarDatos());
             }
             return datos;
-            
-
         }
 
         public bool sosVigente(DateTime fechaActual)
         {
             return (fechaFinVigencia > fechaActual);
+        }
+
+        public DateTime getFinVigencia()
+        {
+            return this.fechaFinVigencia;
         }
     }
 }

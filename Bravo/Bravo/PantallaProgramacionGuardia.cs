@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Bravo.Entidades;
 using Bravo.GUI;
 
 namespace Bravo
@@ -54,21 +55,37 @@ namespace Bravo
             }
         }
 
-        public void mostrarBomberosYDisponibilidad(List<object[]> bomberoActivos, Form1 form1)
+        public void mostrarBomberosYDisponibilidad(List<Bombero> bomberoActivos)
         {
-            DataTable tabla = new DataTable();
-            tabla.Columns.Add("nombre");
-            tabla.Columns.Add("apellido");
-            foreach (Object[] objeto in bomberoActivos)
-            {
-                DataRow fila = tabla.NewRow();
-                fila["nombre"] = objeto[0];
-                fila["apellido"] = objeto[1];
-                tabla.Rows.Add(fila);
-            }
-            form1.llenarGrilla(tabla);
+            
+            Form1 form = (Form1) Application.OpenForms["Form1"];
+            form.llenarGrilla(bomberoActivos);
+
             
             //throw new NotImplementedException();
+        }
+
+        public void mostrarDisponibilidades(Bombero bombero)
+        {
+            String nombre = bombero.getNombre() + " " + bombero.getApellido();
+            DateTime fechaFinVigencia = bombero.getFinVigenciaDisponibilidadActual();
+            List<String[]> disponibilidades = bombero.disponibilidadVigente();
+
+            form2.Show();
+            Form2 form = (Form2)Application.OpenForms["Form2"];
+            form.mostrarDisponibilidades(nombre, disponibilidades, fechaFinVigencia);
+        }
+
+        public void validarSeleccionBomberos(List<Bombero> bomberoSeleccionado)
+        {
+            if(bomberoSeleccionado.Count < 5)
+            {
+                MessageBox.Show("No selecciono 5 bomberos", "Validacion de seleccion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                gestor.tomarBomberos();
+            }
         }
     }
 }
