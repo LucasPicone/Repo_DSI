@@ -43,12 +43,6 @@ namespace Bravo.Entidades
             return datos;
         }
 
-        //???????????????
-        /*public Object[][] cargarDatos()
-        {
-            Object[][] datos = new Object[]
-        }*/
-
         public bool sosVigente(DateTime fechaActual)
         {
             return (fechaFinVigencia > fechaActual);

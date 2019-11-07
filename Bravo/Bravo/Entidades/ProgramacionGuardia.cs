@@ -45,12 +45,7 @@ namespace Bravo.Entidades
                     guardias.Add(new GuardiaBombero(bomberosSeleccionados[i], dias[j], horasDesde[i][j], horasHasta[i][j], pendiente));
 
                 }
-            
-            
-                /*for(int j = 0; j < diasSemana[i].Length; j++)
-                {
-                    guardias.Add(new GuardiaBombero(bomberosSeleccionados[i], diasSemana[i][j], horasDesde[i][j], horasHasta[i][j],pendiente));
-                }*/
+
             }
         }
 
@@ -62,10 +57,10 @@ namespace Bravo.Entidades
                 if (estado.esProgramada() || estado.esEnCurso())
                 {
                     return true;
-                    //todo mal flaque
+                    //el periodo esta ocupado 
                 }
                 else
-                    return false;//?
+                    return false;
             }
             else
             {

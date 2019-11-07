@@ -270,7 +270,7 @@ namespace Bravo
 
                 for (int j = 0; j < detalles.Count; j++)
                 {
-                    //no se si usar corchetes o ElementAt()
+                
                     hdesde[j] =(DateTime)detalles[j][0]; // busco el elemento j en la lista detalles (que es un vector de objetos) y en la posicion 0 siempre esta la hora desde
                     hhasta[j] = (DateTime)detalles[j][1]; //en la posicion 1 siempre tengo horas hasta
                     dias[j] = (DiaSemana)detalles[j][2]; //en la posicion 2 del vector siempre tengo dias
@@ -286,9 +286,5 @@ namespace Bravo
             MessageBox.Show("Programacion creada con éxito", "Programación finalizada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        public void llenar(DateTime[][] horasDesde, DateTime[][] horasHasta, DiaSemana[][] diasSemana)
-        {
-
-        }
     }
 }

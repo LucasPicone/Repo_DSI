@@ -26,7 +26,7 @@ namespace Bravo.Entidades
 
         public EstadoGuardiaBombero validarInicio()
         {
-            //TODO: revisar
+            
             return new EnCurso();
         }
     }

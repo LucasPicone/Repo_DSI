@@ -51,7 +51,7 @@ namespace Bravo
             }
             else
             {
-                //aeojnghaildf
+                MessageBox.Show("Periodo incorrecto", "Validacion de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
