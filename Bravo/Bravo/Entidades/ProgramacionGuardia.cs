@@ -29,7 +29,7 @@ namespace Bravo.Entidades
             this.fechaHasta = fechaHasta;
             this.estado = estado;
 
-            EstadoGuardiaBombero pendiente = new PendienteConfirmacion("pendienteconfirmacion", "indica que esta pendiente de confirmacion");
+            EstadoGuardiaBombero pendiente = new PendienteConfirmacion();
 
             guardias = new List<GuardiaBombero>();
 

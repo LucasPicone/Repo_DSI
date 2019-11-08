@@ -8,5 +8,6 @@ namespace Bravo.Entidades
 {
     class Detenida : EstadoGuardiaBombero
     {
+
     }
 }

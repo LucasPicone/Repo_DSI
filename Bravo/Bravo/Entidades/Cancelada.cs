@@ -8,5 +8,15 @@ namespace Bravo.Entidades
 {
     class Cancelada : EstadoGuardiaBombero
     {
+        public Cancelada()
+        {
+            this.nombre = "cancelada";
+            this.descripcion = "indica que la programacion fue cancelada";
+        }
+
+        public bool esCancelada()
+        {
+            return true;
+        }
     }
 }

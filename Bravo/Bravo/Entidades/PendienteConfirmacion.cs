@@ -8,10 +8,10 @@ namespace Bravo.Entidades
 {
     class PendienteConfirmacion : EstadoGuardiaBombero
     {
-        public PendienteConfirmacion(String nom, String desc)
+        public PendienteConfirmacion()
         {
-            this.nombre = nom;
-            this.descripcion = desc;
+            this.nombre = "pendienteconfirmacion";
+            this.descripcion = "indica que la guarda esta esperando la confimacion";
         }
 
         public bool esPendienteDeConfirmacion()
@@ -24,9 +24,13 @@ namespace Bravo.Entidades
             return new Cancelada();
         }
 
-        //public EstadoGuardiaBombero validarInicio() { }
+        public EstadoGuardiaBombero validarInicio()
+        {
+            //reviso la fecha de inicio contra la actual, si no paso no hago nada, si paso paso a EnCurso
+            return new EnCurso();
+        }
 
-       /* public EstadoGuardiaBombero registrarRespuesta(String respuesta) {
+        public EstadoGuardiaBombero registrarRespuesta(String respuesta) {
 
             if (respuesta == "aceptar")
             {
@@ -34,6 +38,6 @@ namespace Bravo.Entidades
             }
             else return new Rechazada();
 
-        }*/
+        }
     }
 }

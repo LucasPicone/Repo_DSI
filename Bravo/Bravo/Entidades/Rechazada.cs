@@ -8,5 +8,15 @@ namespace Bravo.Entidades
 {
     class Rechazada : EstadoGuardiaBombero
     {
+        public Rechazada()
+        {
+            this.nombre = "rechazada";
+            this.descripcion = "indica que la guarda fue rechazada";
+        }
+
+        public bool esRechazada()
+        {
+            return true;
+        }
     }
 }
